@@ -10,7 +10,7 @@ data "oci_identity_fault_domains" "fds" {
 
 # 商用環境では使用するイメージのOCIDはハードコードすること（時間の経過とともに変化するため）
 data "oci_core_images" "windows_supported_image" {
-  compartment_id           = var.tenancy_ocid
+  compartment_id           = oci_identity_compartment.workload.id
   shape                    = "VM.Standard.E5.Flex"
   operating_system         = "Windows"
   operating_system_version = "Server 2025 Standard"

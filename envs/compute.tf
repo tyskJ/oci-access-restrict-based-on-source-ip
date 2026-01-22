@@ -28,7 +28,7 @@ Compute (Windows Server)
 ##### Instance
 resource "oci_core_instance" "windows_instance" {
   display_name        = "windows-instance"
-  compartment_id      = var.tenancy_ocid
+  compartment_id      = oci_identity_compartment.workload.id
   availability_domain = data.oci_identity_availability_domain.ads.name
   fault_domain        = data.oci_identity_fault_domains.fds.fault_domains[0].name
   shape               = "VM.Standard.E5.Flex"
