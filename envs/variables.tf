@@ -5,3 +5,7 @@ variable "tenancy_ocid" {
 variable "source_ip" {
   type = string
 }
+
+variable "user_email" {
+  type = string
+}

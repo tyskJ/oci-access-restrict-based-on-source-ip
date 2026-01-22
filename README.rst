@@ -90,6 +90,7 @@ OCI へのアクセス を送信元IPで制限する
   cat <<EOF > oci.auto.tfvars
   tenancy_ocid = "テナンシOCID(=ルートコンパートメントOCID)"
   source_ip = "接続元IPアドレス(CIDR形式)"
+  user_email = "作成するIAMユーザー用EMAILアドレス"
   EOF
 
 
