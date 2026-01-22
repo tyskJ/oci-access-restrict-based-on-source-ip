@@ -6,6 +6,7 @@
 .
 └── envs
     ├── backend.tf            tfstateファイル管理定義ファイル
+    ├── compartments.tf       デプロイ用コンパートメント定義ファイル
     ├── compute.tf            OCI compute(Windows Server)定義ファイル
     ├── data.tf               外部データソース定義ファイル
     ├── iam.tf                IAM定義ファイル
