@@ -100,3 +100,21 @@ resource "oci_identity_domains_user" "this" {
     ]
   }
 }
+
+/************************************************************
+Network perimeters
+************************************************************/
+resource "oci_identity_domains_network_perimeter" "this" {
+  idcs_endpoint                = oci_identity_domain.this.url
+  name                         = "restricted-ip-address"
+  schemas                      = ["urn:ietf:params:scim:schemas:oracle:idcs:NetworkPerimeter"]
+  attribute_sets               = null
+  attributes                   = null
+  authorization                = null
+  resource_type_schema_version = null
+  ip_addresses {
+    type    = "CIDR"
+    version = "IPV4"
+    value   = var.source_ip
+  }
+}
