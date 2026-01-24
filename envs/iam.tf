@@ -48,7 +48,7 @@ resource "oci_identity_domains_user" "this" {
   attributes                   = null
   authorization                = null
   display_name                 = "hoge fuga"
-  force_delete                 = null
+  force_delete                 = true
   idcs_endpoint                = oci_identity_domain.this.url
   resource_type_schema_version = null
   schemas = [
