@@ -14,6 +14,19 @@ resource "oci_identity_domain" "this" {
   admin_user_name    = null
   is_hidden_on_login = false
   defined_tags       = local.common_defined_tags
+  provisioner "local-exec" {
+    when    = destroy
+    command = <<EOT
+      echo Deactive
+
+      oci iam domain deactivate \
+      --domain-id ${self.id} \
+      --profile ADMIN --auth security_token
+      
+      echo Please wait Deactive
+      sleep 20
+    EOT
+  }
 }
 
 /************************************************************
