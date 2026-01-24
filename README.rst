@@ -120,6 +120,14 @@ OCI へのアクセス を送信元IPで制限する
 =====================================================================
 1. 環境削除
 ---------------------------------------------------------------------
+* Network perimeter は本検証時に、Sign-on policy内ルールで利用するように手動変更している
+* ルールで参照しているため、terraform destroy しようとすると、BadErrorResponseとなる
+* その場合、destroy 実行前にstateから削除する
+
+.. code-block:: bash
+
+  terraform state rm oci_identity_domains_network_perimeter.this
+
 .. code-block:: bash
 
   terraform destroy --auto-approve
@@ -144,7 +152,6 @@ OCI へのアクセス を送信元IPで制限する
 
 .. code-block:: bash
 
-  terraform state rm oci_identity_domains_network_perimeter.this
   terraform state rm oci_identity_domains_user.this
 
 コンパートメント削除失敗
