@@ -120,21 +120,6 @@ OCI へのアクセス を送信元IPで制限する
 =====================================================================
 1. 環境削除
 ---------------------------------------------------------------------
-* 以下リソースは *BadErrorResponse* となるため、stateから削除する
-
-.. code-block:: bash
-
-  terraform state rm oci_identity_domains_network_perimeter.this
-  terraform state rm oci_identity_domains_user.this
-
-* Identity Domain を 非アクティブ化する
-
-.. code-block:: bash
-
-  oci iam domain deactivate \
-  --domain-id "Identity Domain の OCID" \
-  --profile ADMIN --auth security_token
-
 .. code-block:: bash
 
   terraform destroy --auto-approve
@@ -151,6 +136,17 @@ OCI へのアクセス を送信元IPで制限する
 
 番外編
 =====================================================================
+一部リソース削除失敗
+---------------------------------------------------------------------
+* 以下リソースは *BadErrorResponse* となる場合があります
+* その場合、stateから削除する
+* 他リソースが残っている場合は、再度 destroy を実行してください
+
+.. code-block:: bash
+
+  terraform state rm oci_identity_domains_network_perimeter.this
+  terraform state rm oci_identity_domains_user.this
+
 コンパートメント削除失敗
 ---------------------------------------------------------------------
 * コンパートメント削除に失敗する場合、対象コンパートメントに属するリソースが存在することが原因です
