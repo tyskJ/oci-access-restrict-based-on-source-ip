@@ -18,7 +18,7 @@ OCI へのアクセス を送信元IPで制限する
 =====================================================================
 * macOS Sequoia ( v15.7.2 )
 * Visual Studio Code 1.106.3
-* Terraform v1.13.5
+* Terraform v1.14.1
 * oci cli 3.71.0
 * Python 3.12.0
 
